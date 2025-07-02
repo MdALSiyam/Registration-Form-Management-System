@@ -1,0 +1,211 @@
+.container {
+  max-width: 1200px; /* Increased max-width to accommodate three columns */
+  margin: 20px auto;
+  padding: 30px; /* Adjusted padding */
+  background-color: #f0f2f5; /* Lighter background for the container */
+  border-radius: 12px; /* Slightly more rounded */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+}
+
+.main-title {
+  color: #6a0dad; /* Purple color from the screenshot */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em; /* Larger font size */
+  font-weight: 600;
+}
+
+.form-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 25px; /* Gap between the cards */
+  margin-bottom: 30px;
+}
+
+.form-section-card {
+  background-color: #ffffff; /* White background for the cards */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Card shadow */
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the icon and text */
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.section-header .icon {
+  font-size: 1.8em;
+  margin-right: 10px;
+  color: #6a0dad; /* Purple icon color */
+}
+
+.form-section-card h3 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin: 0; /* Remove default margin */
+  color: #333;
+}
+
+.optional-text {
+  font-size: 0.8em;
+  color: #888;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.form-group {
+  margin-bottom: 18px; /* Slightly more spacing between form groups */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px; /* More space for label */
+  font-weight: 500; /* Medium font weight */
+  color: #555;
+  font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%; /* Full width within the card */
+  padding: 12px 15px; /* Increased padding */
+  border: 1px solid #ccc; /* Lighter border */
+  border-radius: 6px; /* Slightly more rounded inputs */
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6a0dad; /* Purple focus border */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.25); /* Purple shadow on focus */
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px; /* Space between radio options */
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2; /* Light grey background for radio options */
+  padding: 10px 15px;
+  border-radius: 20px; /* Pill shape */
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-option:has(input:checked) {
+  background-color: #6a0dad; /* Purple when checked */
+  color: white;
+  border-color: #6a0dad;
+}
+
+.radio-option:hover {
+  background-color: #e0e0e0;
+}
+
+.radio-option:has(input:checked):hover {
+  background-color: #520b85; /* Darker purple on hover when checked */
+}
+
+.radio-option input[type="radio"] {
+  -webkit-appearance: none; /* Hide default radio button */
+  -moz-appearance: none;
+  appearance: none;
+  width: 0; /* Make it effectively invisible but still selectable */
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.radio-option label {
+  margin: 0; /* Remove default label margin */
+  padding-left: 0; /* Adjust as input is now hidden */
+  font-weight: normal;
+  cursor: pointer;
+  color: inherit; /* Inherit color from parent (.radio-option) */
+}
+
+.create-registration-button {
+  background-color: #6a0dad; /* Purple button */
+  color: white;
+  padding: 15px 25px; /* Larger padding */
+  border: none;
+  border-radius: 8px; /* Slightly more rounded */
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  width: auto; /* Allow content to dictate width */
+  min-width: 250px; /* Minimum width */
+  margin: 30px auto 0 auto; /* Center button horizontally with auto margins */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-registration-button .button-icon {
+  margin-left: 10px;
+  font-size: 0.9em;
+}
+
+.create-registration-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.create-registration-button:hover:not([disabled]) {
+  background-color: #520b85; /* Darker purple on hover */
+  box-shadow: 0 6px 15px rgba(106, 13, 173, 0.3); /* Enhanced shadow on hover */
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin-top: 8px;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 1.1em;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .form-sections {
+    grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .form-sections {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .form-section-card {
+    margin-bottom: 20px; /* Add some space between stacked cards */
+  }
+  .container {
+    padding: 20px;
+  }
+}

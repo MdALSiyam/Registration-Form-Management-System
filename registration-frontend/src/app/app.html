@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <a routerLink="/registrations" class="sidebar-brand">Registration App</a>
+      <div class="sidebar-links">
+        <a routerLink="/registrations" routerLinkActive="active">
+          <span class="link-icon">📋</span>
+          <span class="link-text">View All Registrations</span>
+        </a>
+        <a routerLink="/create-registration" routerLinkActive="active">
+          <span class="link-icon">➕</span>
+          <span class="link-text">Create New Registration</span>
+        </a>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      &copy; Developed by - <br />
+      Md. Abdul Latif Siyam
+    </div>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

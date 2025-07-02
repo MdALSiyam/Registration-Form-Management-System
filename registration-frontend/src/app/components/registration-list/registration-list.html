@@ -1,0 +1,79 @@
+<div class="container">
+  <h2>All Registrations</h2>
+
+  <div class="filter-sort-section">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search by name, transaction ID..."
+      (keyup.enter)="applyFiltersAndSort()"
+    />
+
+    <select [(ngModel)]="statusFilter" (change)="applyFiltersAndSort()">
+      <option value="">All Statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Confirmed">Confirmed</option>
+      <option value="Cancelled">Cancelled</option>
+    </select>
+
+    <select [(ngModel)]="sortBy" (change)="applyFiltersAndSort()">
+      <option value="Sl">Default</option>
+      <option value="personname">Person Name</option>
+      <option value="registrationdate">Registration Date</option>
+      <option value="status">Status</option>
+    </select>
+
+    <select [(ngModel)]="sortOrder" (change)="applyFiltersAndSort()">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+
+    <button (click)="applyFiltersAndSort()">Apply</button>
+  </div>
+
+  <button class="add-button" (click)="createNewRegistration()">
+    Create New Registration
+  </button>
+
+  <table class="registration-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Person Name</th>
+        <th>Registration Date</th>
+        <th>Status</th>
+        <th>Payment Method</th>
+        <th>Transaction ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reg of registrations">
+        <td>{{ reg.sl }}</td>
+        <td>{{ reg.pName }}</td>
+        <td>{{ reg.dRegistrationDate | date : "short" }}</td>
+        <td>{{ reg.sStatus }}</td>
+        <td>{{ reg.sPaymentMethod }}</td>
+        <td>{{ reg.vTrxId }}</td>
+        <td class="actions">
+          <button (click)="viewDetails(reg.sl!)">View</button>
+          <button
+            *ngIf="reg.sStatus === 'Pending'"
+            (click)="confirmPayment(reg.sl!)"
+          >
+            Confirm Payment
+          </button>
+          <button
+            *ngIf="reg.sStatus !== 'Cancelled'"
+            (click)="cancelRegistration(reg.sl!)"
+          >
+            Cancel
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="registrations.length === 0">
+        <td colspan="7" style="text-align: center">No registrations found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

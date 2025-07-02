@@ -1,0 +1,226 @@
+<div class="container">
+  <h2 class="main-title">Create New Registration</h2>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-sections">
+      <div class="form-section-card">
+        <div class="section-header">
+          <i class="fas fa-user icon"></i>
+          <h3>Personal Information</h3>
+        </div>
+        <div class="form-group">
+          <label for="pName">Full Name:</label>
+          <input id="pName" type="text" formControlName="pName" />
+          <div
+            *ngIf="
+              registrationForm.get('pName')?.invalid &&
+              registrationForm.get('pName')?.touched
+            "
+            class="error-message"
+          >
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input id="phone" type="text" formControlName="phone" />
+          <div
+            *ngIf="
+              registrationForm.get('phone')?.invalid &&
+              registrationForm.get('phone')?.touched
+            "
+            class="error-message"
+          >
+            Phone is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input id="address" type="text" formControlName="address" />
+          <div
+            *ngIf="
+              registrationForm.get('address')?.invalid &&
+              registrationForm.get('address')?.touched
+            "
+            class="error-message"
+          >
+            Address is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="eMail">Email:</label>
+          <input id="eMail" type="email" formControlName="eMail" />
+          <div
+            *ngIf="
+              registrationForm.get('eMail')?.invalid &&
+              registrationForm.get('eMail')?.touched
+            "
+            class="error-message"
+          >
+            <span *ngIf="registrationForm.get('eMail')?.errors?.['required']"
+              >Email is required.</span
+            >
+            <span *ngIf="registrationForm.get('eMail')?.errors?.['email']"
+              >Invalid email format.</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pType">Person Type:</label>
+          <select id="pType" formControlName="pType">
+            <option value="Student">Student</option>
+            <option value="Business">Business</option>
+            <option value="Employee">Employee</option>
+          </select>
+          <div
+            *ngIf="
+              registrationForm.get('pType')?.invalid &&
+              registrationForm.get('pType')?.touched
+            "
+            class="error-message"
+          >
+            Person Type is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section-card">
+        <div class="section-header">
+          <i class="fas fa-building icon"></i>
+          <h3>
+            Organization Details <span class="optional-text">Optional</span>
+          </h3>
+        </div>
+        <div class="form-group">
+          <label for="organization">Organization:</label>
+          <input id="organization" type="text" formControlName="organization" />
+        </div>
+
+        <div class="form-group">
+          <label for="designation">Designation:</label>
+          <input id="designation" type="text" formControlName="designation" />
+        </div>
+
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input id="city" type="text" formControlName="city" />
+        </div>
+
+        <div class="form-group">
+          <label for="postalCode">Portal Code:</label>
+          <input id="postalCode" type="text" formControlName="postalCode" />
+        </div>
+      </div>
+
+      <div class="form-section-card">
+        <div class="section-header">
+          <i class="fas fa-clipboard-list icon"></i>
+          <h3>Registration</h3>
+        </div>
+        <div class="form-group">
+          <label for="announcementId">Announcement ID:</label>
+          <input
+            id="announcementId"
+            type="number"
+            formControlName="announcementId"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('announcementId')?.invalid &&
+              registrationForm.get('announcementId')?.touched
+            "
+            class="error-message"
+          >
+            Announcement ID is required and must be a positive number.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input id="category" type="text" formControlName="category" />
+          <div
+            *ngIf="
+              registrationForm.get('category')?.invalid &&
+              registrationForm.get('category')?.touched
+            "
+            class="error-message"
+          >
+            Category is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fees">Fees:</label>
+          <input id="fees" type="number" formControlName="fees" />
+          <div
+            *ngIf="
+              registrationForm.get('fees')?.invalid &&
+              registrationForm.get('fees')?.touched
+            "
+            class="error-message"
+          >
+            Fees are required and must be a non-negative number.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Payment Method:</label>
+          <select id="paymentMethod" formControlName="paymentMethod">
+            <option value="Bank Transfer">Bank Transfer</option>
+          </select>
+          <div
+            *ngIf="
+              registrationForm.get('paymentMethod')?.invalid &&
+              registrationForm.get('paymentMethod')?.touched
+            "
+            class="error-message"
+          >
+            Payment Method is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Payment Type:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="online"
+                value="Online"
+                formControlName="paymentType"
+              />
+              <label for="online">Online</label>
+            </div>
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="offline"
+                value="Offline"
+                formControlName="paymentType"
+              />
+              <label for="offline">Offline</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="create-registration-button"
+      [disabled]="!registrationForm.valid || loading"
+    >
+      {{ loading ? "Submitting..." : "Create Registration" }}
+      <i class="fas fa-arrow-right button-icon"></i>
+    </button>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>

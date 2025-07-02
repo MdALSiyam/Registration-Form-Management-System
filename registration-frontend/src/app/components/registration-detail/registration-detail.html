@@ -1,0 +1,73 @@
+<div class="container">
+  <button (click)="goBack()" class="back-button">Back to List</button>
+
+  <div *ngIf="registration">
+    <h2>Registration Details (ID: {{ registration.sl }})</h2>
+    <div class="detail-grid">
+      <div class="detail-item">
+        <strong>Person Name:</strong> {{ registration.pName }}
+      </div>
+      <div class="detail-item">
+        <strong>Email:</strong> {{ registration.eMail }}
+      </div>
+      <div class="detail-item">
+        <strong>Phone:</strong> {{ registration.phone }}
+      </div>
+      <div class="detail-item">
+        <strong>Address:</strong> {{ registration.address }}
+      </div>
+      <div class="detail-item">
+        <strong>Person Type:</strong> {{ registration.pType }}
+      </div>
+      <div class="detail-item">
+        <strong>Organization:</strong> {{ registration.organization }}
+      </div>
+      <div class="detail-item">
+        <strong>Designation:</strong> {{ registration.designation }}
+      </div>
+      <div class="detail-item">
+        <strong>City:</strong> {{ registration.city }}
+      </div>
+      <div class="detail-item">
+        <strong>Postal Code:</strong> {{ registration.postalCode }}
+      </div>
+
+      <div class="detail-item" *ngIf="registration.courseName">
+        <strong>Course Name:</strong> {{ registration.courseName }}
+      </div>
+      <div class="detail-item" *ngIf="registration.courseType">
+        <strong>Course Type:</strong> {{ registration.courseType }}
+      </div>
+
+      <div class="detail-item">
+        <strong>Registration Date:</strong>
+        {{ registration.dRegistrationDate | date : "fullDate" }}
+      </div>
+      <div class="detail-item">
+        <strong>Fees:</strong> {{ registration.iFees }}
+      </div>
+      <div class="detail-item">
+        <strong>Category:</strong> {{ registration.vCategory }}
+      </div>
+      <div class="detail-item">
+        <strong>Status:</strong> {{ registration.sStatus }}
+      </div>
+      <div class="detail-item">
+        <strong>Payment Method:</strong> {{ registration.sPaymentMethod }}
+      </div>
+      <div class="detail-item">
+        <strong>Payment Type:</strong> {{ registration.vPaymentType }}
+      </div>
+      <div class="detail-item">
+        <strong>Transaction ID:</strong> {{ registration.vTrxId }}
+      </div>
+      <div class="detail-item">
+        <strong>Entry By:</strong> {{ registration.vEntryBy }}
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!registration">
+    <p>Loading registration details or registration not found...</p>
+  </div>
+</div>

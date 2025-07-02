@@ -1,0 +1,69 @@
+<div class="container">
+  <button (click)="goBack()" class="back-button">
+    Back to Registration Details
+  </button>
+
+  <div *ngIf="registration">
+    <h2>Confirm Payment for Registration (ID: {{ registration.sl }})</h2>
+    <p><strong>Person:</strong> {{ registration.pName }}</p>
+    <p><strong>Course:</strong> {{ registration.courseName }}</p>
+    <p><strong>Current Status:</strong> {{ registration.sStatus }}</p>
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" formControlName="paymentMethod">
+          <option value="">Select Method</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Mobile Banking">Mobile Banking</option>
+          <option value="Cash">Cash</option>
+        </select>
+        <div
+          *ngIf="
+            paymentForm.get('paymentMethod')?.invalid &&
+            paymentForm.get('paymentMethod')?.touched
+          "
+          class="error-message"
+        >
+          Payment Method is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="transactionId">Transaction ID:</label>
+        <input id="transactionId" type="text" formControlName="transactionId" />
+        <div
+          *ngIf="
+            paymentForm.get('transactionId')?.invalid &&
+            paymentForm.get('transactionId')?.touched
+          "
+          class="error-message"
+        >
+          Transaction ID is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="paymentType">Payment Type:</label>
+        <select id="paymentType" formControlName="paymentType">
+          <option value="Online">Online</option>
+          <option value="Offline">Offline</option>
+        </select>
+      </div>
+
+      <button type="submit" [disabled]="!paymentForm.valid || loading">
+        {{ loading ? "Confirming..." : "Confirm Payment" }}
+      </button>
+
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+  <div *ngIf="!registration">
+    <p>Loading registration details for payment confirmation...</p>
+  </div>
+</div>
