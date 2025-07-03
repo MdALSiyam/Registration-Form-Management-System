@@ -58,7 +58,7 @@ Follow these steps to set up and run the Registration Form Management System on 
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/MdALSiyam/Registration-Form-Management-System.git](https://github.com/MdALSiyam/Registration-Form-Management-System.git)
+    git clone https://github.com/MdALSiyam/Registration-Form-Management-System.git
     ```
 
 2.  **Backend Setup (ASP.NET Core API):**
