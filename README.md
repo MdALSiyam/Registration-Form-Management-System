@@ -24,15 +24,17 @@ This project is a comprehensive Registration Form Management System, featuring a
 ### Registration Details View
 ![Registration Details View](Outputs/reg3.png)
 
+### Confirm Payment Form
+![Confirm Payment Form](Outputs/reg4.png)
+
 ### All Registrations Dashboard (Filtered by Pending)
-![All Registrations Filtered by Pending](Outputs/reg4.png)
+![All Registrations Filtered by Pending](Outputs/reg5.png)
 
 ### All Registrations Dashboard (Filtered by Confirmed)
-![All Registrations Filtered by Confirmed](Outputs/reg5.png)
+![All Registrations Filtered by Confirmed](Outputs/reg6.png)
 
 ### All Registrations Dashboard (Filtered by Cancelled)
-![All Registrations Filtered by Cancelled](Outputs/reg6.png)
-
+![All Registrations Filtered by Cancelled](Outputs/reg7.png)
 
 ## Technologies Used
 
