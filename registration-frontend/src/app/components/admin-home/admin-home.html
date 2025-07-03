@@ -1,0 +1,81 @@
+<div class="admin-home-content">
+  <div class="welcome-section">
+    <h1>Welcome to the Registration Management System!</h1>
+    <p>
+      Central hub for managing registrations, users, payments, and settings
+      efficiently.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card" routerLink="/admin/registrations">
+      <div class="card-icon view-registrations">
+        <i class="material-icons">description</i>
+      </div>
+      <h3 class="card-title">View Registrations</h3>
+      <p class="card-description">
+        Track and manage all existing registrations.
+      </p>
+      <button class="card-button primary-button">View All Registrations</button>
+    </div>
+
+    <div class="card" routerLink="/admin/create-registration">
+      <div class="card-icon create-registration">
+        <i class="material-icons">add_circle</i>
+      </div>
+      <h3 class="card-title">Create Registration</h3>
+      <p class="card-description">
+        Register new participants quickly and easily.
+      </p>
+      <button class="card-button success-button">
+        Create New Registration
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon payments">
+        <i class="material-icons">payments</i>
+      </div>
+      <h3 class="card-title">Payments</h3>
+      <p class="card-description">
+        Monitor and confirm payment statuses for registrations.
+      </p>
+      <button class="card-button info-button" disabled>Manage Payments</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon users">
+        <i class="material-icons">group</i>
+      </div>
+      <h3 class="card-title">Users</h3>
+      <p class="card-description">
+        Manage user accounts and roles within the system.
+      </p>
+      <button class="card-button warning-button" disabled>Manage Users</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon reports">
+        <i class="material-icons">bar_chart</i>
+      </div>
+      <h3 class="card-title">Reports</h3>
+      <p class="card-description">
+        Generate analytical reports on registration data.
+      </p>
+      <button class="card-button danger-button" disabled>View Reports</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon settings">
+        <i class="material-icons">settings</i>
+      </div>
+      <h3 class="card-title">Settings</h3>
+      <p class="card-description">
+        Configure application settings and preferences.
+      </p>
+      <button class="card-button secondary-button" disabled>
+        Go to Settings
+      </button>
+    </div>
+  </div>
+</div>

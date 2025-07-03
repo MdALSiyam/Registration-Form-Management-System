@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  position: relative;
+  position: static;
   top: 0;
 }
 

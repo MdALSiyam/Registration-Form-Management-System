@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router'; // RouterModule if you use routerLink
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -8,16 +8,12 @@ import {
 } from '@angular/forms'; // ReactiveFormsModule for forms
 import { RegistrationService } from '../../services/registration';
 import { ViwRegistration } from '../../models/registration.model';
-import { CommonModule } from '@angular/common'; // CommonModule for *ngIf
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-payment-confirmation',
-  standalone: true, // **CRITICAL: Add this line**
-  imports: [
-    CommonModule, // For *ngIf and other common directives
-    ReactiveFormsModule, // **CRITICAL: For [formGroup] and formControlName**
-    RouterModule, // For Router, routerLink (if used in template)
-  ],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './payment-confirmation.html',
   styleUrls: ['./payment-confirmation.css'],
 })
@@ -49,7 +45,7 @@ export class PaymentConfirmationComponent implements OnInit {
         this.registrationId = +idParam;
         this.loadRegistrationDetails(this.registrationId);
       } else {
-        this.router.navigate(['/registrations']); // Redirect if no ID is provided
+        this.router.navigate(['/registrations']);
       }
     });
   }

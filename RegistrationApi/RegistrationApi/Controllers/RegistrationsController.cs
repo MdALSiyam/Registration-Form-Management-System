@@ -6,9 +6,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RegistrationApi.Controllers
 {
-    /// <summary>
-    /// API for managing course registrations
-    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class RegistrationsController : ControllerBase
@@ -24,13 +21,6 @@ namespace RegistrationApi.Controllers
             _logger = logger;
         }
 
-        /// <summary>
-        /// Get all registrations with filtering and sorting
-        /// </summary>
-        /// <param name="search">Search term (name, course, etc.)</param>
-        /// <param name="status">Filter by status (Pending/Confirmed/Cancelled)</param>
-        /// <param name="sortBy">Field to sort by (personname, coursename, etc.)</param>
-        /// <param name="sortOrder">Sort order (asc/desc)</param>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ViwRegistration>))]
         public async Task<ActionResult<IEnumerable<ViwRegistration>>> GetRegistrations(
@@ -87,10 +77,6 @@ namespace RegistrationApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Get a specific registration by ID
-        /// </summary>
-        /// <param name="id">Registration ID</param>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ViwRegistration))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -116,9 +102,6 @@ namespace RegistrationApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Create a new registration
-        /// </summary>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ViwRegistration))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -193,10 +176,6 @@ namespace RegistrationApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Confirm payment for a registration
-        /// </summary>
-        /// <param name="id">Registration ID</param>
         [HttpPut("ConfirmPayment/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -244,10 +223,6 @@ namespace RegistrationApi.Controllers
             }
         }
 
-        /// <summary>
-        /// Cancel a registration (soft delete)
-        /// </summary>
-        /// <param name="id">Registration ID</param>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -281,111 +256,55 @@ namespace RegistrationApi.Controllers
         }
     }
 
-    /// <summary>
-    /// Payment confirmation data
-    /// </summary>
     public class PaymentConfirmationDto
     {
-        /// <summary>
-        /// Payment method (Credit Card, Bank Transfer, etc.)
-        /// </summary>
+
         [Required]
         public string PaymentMethod { get; set; } = null!;
 
-        /// <summary>
-        /// Unique transaction ID
-        /// </summary>
         [Required]
         public string TransactionId { get; set; } = null!;
 
-        /// <summary>
-        /// Payment type (Online, Offline)
-        /// </summary>
         public string? PaymentType { get; set; }
     }
 
-    /// <summary>
-    /// Registration data
-    /// </summary>
     public class RegistrationDto
     {
-        /// <summary>
-        /// Person's full name
-        /// </summary>
         [Required]
         public string PName { get; set; } = null!;
 
-        /// <summary>
-        /// Contact phone number
-        /// </summary>
         [Required]
         public string Phone { get; set; } = null!;
 
-        /// <summary>
-        /// Full address
-        /// </summary>
         [Required]
         public string Address { get; set; } = null!;
 
-        /// <summary>
-        /// Email address
-        /// </summary>
         [Required, EmailAddress]
         public string EMail { get; set; } = null!;
 
-        /// <summary>
-        /// Person type (Student, Professional, etc.)
-        /// </summary>
         [Required]
         public string PType { get; set; } = null!;
 
-        /// <summary>
-        /// Organization/Company
-        /// </summary>
         public string? Organization { get; set; }
 
-        /// <summary>
-        /// Job designation
-        /// </summary>
         public string? Designation { get; set; }
 
-        /// <summary>
-        /// City
-        /// </summary>
         public string? City { get; set; }
 
-        /// <summary>
-        /// Postal/Zip code
-        /// </summary>
         public string? PostalCode { get; set; }
 
-        /// <summary>
-        /// Announcement ID
-        /// </summary>
         [Required]
         public int AnnouncementId { get; set; }
 
-        /// <summary>
-        /// Registration category
-        /// </summary>
         [Required]
         public string Category { get; set; } = null!;
 
-        /// <summary>
-        /// Fees amount
-        /// </summary>
         [Required]
         public int Fees { get; set; }
 
-        /// <summary>
-        /// Payment method
-        /// </summary>
         [Required]
         public string PaymentMethod { get; set; } = null!;
 
-        /// <summary>
-        /// Payment type
-        /// </summary>
         public string? PaymentType { get; set; }
     }
 }

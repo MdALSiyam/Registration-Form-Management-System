@@ -4968,11 +4968,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\ABC\\RegistrationApi\\RegistrationApi\\RegistrationApi.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\ABC\\Registration-Form\\Registration-Form-Management-System\\RegistrationApi\\RegistrationApi\\RegistrationApi.csproj",
       "projectName": "RegistrationApi",
-      "projectPath": "C:\\Users\\user\\Desktop\\ABC\\RegistrationApi\\RegistrationApi\\RegistrationApi.csproj",
+      "projectPath": "C:\\Users\\user\\Desktop\\ABC\\Registration-Form\\Registration-Form-Management-System\\RegistrationApi\\RegistrationApi\\RegistrationApi.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Desktop\\ABC\\RegistrationApi\\RegistrationApi\\obj\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\ABC\\Registration-Form\\Registration-Form-Management-System\\RegistrationApi\\RegistrationApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -4,21 +4,17 @@ import {
   FormGroup,
   Validators,
   ReactiveFormsModule,
-} from '@angular/forms'; // ReactiveFormsModule needed for reactive forms
+} from '@angular/forms';
 import { RegistrationService } from '../../services/registration';
-import { Router, RouterModule } from '@angular/router'; // RouterModule needed if using routerLink directly in template
-import { CommonModule } from '@angular/common'; // CommonModule needed for common directives like *ngIf, *ngFor
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-registration-form',
-  standalone: true, // **CRITICAL: Add this line**
-  imports: [
-    CommonModule, // For directives like *ngIf, *ngFor
-    ReactiveFormsModule, // For using FormGroup, FormBuilder, etc.
-    RouterModule, // For routerLink and Router functionality
-  ],
-  templateUrl: './registration-form.html', // **FIXED: Added .html extension**
-  styleUrls: ['./registration-form.css'], // **FIXED: Added .css extension**
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  templateUrl: './registration-form.html',
+  styleUrls: ['./registration-form.css'],
 })
 export class RegistrationFormComponent implements OnInit {
   registrationForm: FormGroup;

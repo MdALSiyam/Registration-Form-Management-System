@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../../services/registration';
 import { ViwRegistration } from '../../models/registration.model';
-import { Router, RouterModule } from '@angular/router'; // Import RouterModule
-import { CommonModule } from '@angular/common'; // Import CommonModule
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-list',
-  standalone: true, // You might need to add this if it's a standalone component
+  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './registration-list.html',
   styleUrls: ['./registration-list.css'],
@@ -16,8 +16,13 @@ export class RegistrationListComponent implements OnInit {
   registrations: ViwRegistration[] = [];
   searchQuery: string = '';
   statusFilter: string = '';
-  sortBy: string = 'Sl'; // Default sort by Sl
-  sortOrder: string = 'asc'; // Default sort order
+  sortBy: string = 'Sl';
+  sortOrder: string = 'asc';
+
+  totalRegistrations: number = 0;
+  pendingRegistrations: number = 0;
+  confirmedRegistrations: number = 0;
+  cancelledRegistrations: number = 0;
 
   constructor(
     private registrationService: RegistrationService,
@@ -39,12 +44,29 @@ export class RegistrationListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.registrations = data;
+          this.updateCardData();
         },
         error: (error) => {
           console.error('Error fetching registrations:', error);
-          // Handle error, e.g., show a message to the user
+          this.totalRegistrations = 0;
+          this.pendingRegistrations = 0;
+          this.confirmedRegistrations = 0;
+          this.cancelledRegistrations = 0;
         },
       });
+  }
+
+  updateCardData(): void {
+    this.totalRegistrations = this.registrations.length;
+    this.pendingRegistrations = this.registrations.filter(
+      (reg) => reg.sStatus === 'Pending'
+    ).length;
+    this.confirmedRegistrations = this.registrations.filter(
+      (reg) => reg.sStatus === 'Confirmed'
+    ).length;
+    this.cancelledRegistrations = this.registrations.filter(
+      (reg) => reg.sStatus === 'Cancelled'
+    ).length;
   }
 
   applyFiltersAndSort(): void {
@@ -64,7 +86,7 @@ export class RegistrationListComponent implements OnInit {
       this.registrationService.cancelRegistration(id).subscribe({
         next: () => {
           console.log(`Registration ${id} cancelled successfully.`);
-          this.loadRegistrations(); // Refresh the list
+          this.loadRegistrations(); // Refresh the list and card data
         },
         error: (error) => {
           console.error(`Error cancelling registration ${id}:`, error);

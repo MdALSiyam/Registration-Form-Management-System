@@ -50,5 +50,5 @@ h2 {
 .detail-item strong {
   color: #555;
   display: inline-block;
-  min-width: 120px; /* Adjust as needed */
+  min-width: 120px;
 }

@@ -13,6 +13,76 @@ h2 {
   margin-bottom: 20px;
 }
 
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-cards .card:nth-child(1) {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Blue */
+  border: 1px solid #0056b3;
+}
+
+.summary-cards .card:nth-child(2) {
+  background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+  border: 1px solid #e0a800;
+  color: #333;
+}
+
+.summary-cards .card:nth-child(3) {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  border: 1px solid #1e7e34;
+}
+
+.summary-cards .card:nth-child(4) {
+  background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+  border: 1px solid #a71d2a;
+}
+
+.card .icon {
+  font-size: 36px;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.summary-cards .card:nth-child(2) .icon {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card .details h3 {
+  margin: 0;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.card .details .value {
+  margin: 5px 0 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .filter-sort-section {
   display: flex;
   gap: 10px;
@@ -88,7 +158,6 @@ h2 {
 }
 
 .actions button:nth-child(2) {
-  /* Confirm Payment */
   background-color: #ffc107;
   color: #333;
 }
@@ -97,7 +166,6 @@ h2 {
 }
 
 .actions button:last-child {
-  /* Cancel */
   background-color: #dc3545;
   color: white;
 }
